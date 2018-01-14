@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { VibrationComponent } from './vibration/vibration.component';
 import { CentrifugeComponent } from './centrifuge/centrifuge.component';
 import {CentrifugeCalcService} from './centrifuge/centrifuge-calc.service';
+import {VibrationCalcService} from "./vibration/vibration-calc.service";
 
 
 const routes: Routes = [
@@ -27,7 +28,7 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [CentrifugeCalcService],
+  providers: [CentrifugeCalcService, VibrationCalcService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,6 +13,9 @@ export class CentrifugeComponent implements OnInit {
   acceleration: number;
   calculationType: string [];
 
+  isNotValidTooManyValues = false;
+  isNotValidTooFewValues = false;
+
   constructor(private centrifugeCalcService: CentrifugeCalcService) {
   }
 
@@ -21,12 +24,26 @@ export class CentrifugeComponent implements OnInit {
   }
 
   execute() {
+    this.isNotValidTooManyValues = false;
+    this.isNotValidTooFewValues = false;
     this.chooseTypeCalculation();
     if (this.calculationType.length === 1) {
       switch (this.calculationType[0]) {
-        case 'radius': this.radius = this.calculationRadius (this.frequency, this.acceleration); break;
-        case 'frequency': this.frequency = this.calculationFrequency (this.acceleration, this.radius); break;
-        case 'acceleration': this.acceleration = this.calculationAcceleration (this.radius, this.frequency); break;
+        case 'radius':
+          this.radius = this.centrifugeCalcService.calculationRadius(this.frequency, this.acceleration);
+          break;
+        case 'frequency':
+          this.frequency = this.centrifugeCalcService.calculationFrequency(this.acceleration, this.radius);
+          break;
+        case 'acceleration':
+          this.acceleration = this.centrifugeCalcService.calculationAcceleration(this.radius, this.frequency);
+          break;
+      }
+    } else {
+      if (this.calculationType.length < 2) {
+        this.isNotValidTooManyValues = true;
+      } else {
+        this.isNotValidTooFewValues = true;
       }
     }
   }
@@ -42,17 +59,5 @@ export class CentrifugeComponent implements OnInit {
     if (!this.frequency) {
       this.calculationType.push('frequency');
     }
-  }
-
-  calculationRadius(frequency: number, acceleration: number) {
-    return this.centrifugeCalcService.calculationRadius(frequency, acceleration);
-  }
-
-  calculationFrequency(acceleration: number, radius: number) {
-    return this.centrifugeCalcService.calculationFrequency(acceleration, radius);
-  }
-
-  calculationAcceleration(radius: number, frequency: number) {
-    return this.centrifugeCalcService.calculationAcceleration(radius, frequency);
   }
 }
