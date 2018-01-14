@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-centrifuge',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CentrifugeComponent implements OnInit {
 
-  constructor() { }
+  radius;
+  frequency;
+  acceleration;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  execute() {
+    console.log(this.radius);
+    console.log(this.frequency);
+    console.log(this.acceleration);
+  }
 }

@@ -5,23 +5,28 @@
       <p>Расчет основных параметров при испытании на воздействие линейного ускорения</p>
     </div>
   </div>
-  <form role="form"
-        class="col-lg-offset-3 col-md-offset-4 col-sm-offset-4 col-xs-offset-8 col-lg-2 col-md-3 col-sm-3 col-xs-6">
+
+  <div class="col-lg-offset-3 col-md-offset-4 col-sm-offset-4 col-xs-offset-8 col-lg-2 col-md-3 col-sm-3 col-xs-6">
     <div class="form-group">
       <label for="radius">Радиус</label>
-      <input type="number" step="0.01" class="form-control" id="radius" placeholder="Введите радиус">
+      <input type="number" step="0.01" class="form-control" id="radius" placeholder="Введите радиус"
+             ([ngModel])="radius">
     </div>
     <div class="form-group">
       <label for="frequency">Частота</label>
-      <input type="number" step="0.01" class="form-control" id="frequency" placeholder="Частота">
+      <input type="number" step="0.01" class="form-control" id="frequency" placeholder="Частота"
+             ([ngModel])="frequency">
     </div>
     <div class="form-group">
-      <label for="frequency">Перегрузка</label>
-      <input type="number" step="0.01" class="form-control" id="acceleration" placeholder="Перегрузка">
+      <label for="acceleration">Перегрузка</label>
+      <input type="number" step="0.01" class="form-control" id="acceleration" placeholder="Перегрузка"
+             ([ngModel])="acceleration">
     </div>
-
-    <button type="submit" class="btn btn-success right">Посчитать</button>
-  </form>
+    <p>
+      {{frequency}}
+    </p>
+    <button type=button class="btn btn-success right" (click)=execute()>Посчитать</button>
+  </div>
 
 
 </div>

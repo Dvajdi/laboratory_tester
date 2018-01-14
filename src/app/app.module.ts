@@ -21,6 +21,7 @@ const routes:Routes = [
     CentrifugeComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     RouterModule.forRoot(routes)
   ],
