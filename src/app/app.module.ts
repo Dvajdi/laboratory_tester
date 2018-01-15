@@ -11,10 +11,16 @@ import {CentrifugeCalcService} from './centrifuge/centrifuge-calc.service';
 import {VibrationCalcService} from "./vibration/vibration-calc.service";
 
 
+/*const routes: Routes = [
+  {path: '', redirectTo: 'centrifuge', pathMatch: 'full'},
+  {path: 'centrifuge', component: CentrifugeComponent},
+  {path: 'vibration', component: VibrationComponent},
+];*/
 const routes: Routes = [
   {path: '', redirectTo: 'centrifuge', pathMatch: 'full'},
   {path: 'centrifuge', component: CentrifugeComponent},
-  {path: 'vibration', component: VibrationComponent}
+  {path: 'vibration', component: VibrationComponent},
+  {path: '**', redirectTo: 'centrifuge', pathMatch: 'full'}
 ];
 
 @NgModule({

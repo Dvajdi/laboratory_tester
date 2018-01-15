@@ -1,0 +1,14 @@
+{
+  "name": "laboratory",
+  "main": "index.html",
+  "version": "0.0.1",
+  "license": "MIT",
+  "dependencies":  {
+  },
+  "window": {
+    "title":"laboratory",
+    "width":800,
+    "height":600,
+    "toolbar":false
+  }
+}
